@@ -137,12 +137,12 @@ def del_cliente(query: ClienteBuscaSchema):
     
 @app.put('/cliente', tags=[cliente_tag],
          responses={"200": ClienteViewSchema, "404": ErrorSchema})
-def update_cliente(form: ClienteUpdateSchema):
+def update_cliente(query: ClienteUpdateSchema):
     """Atualiza um cliente a partir do ID informado.
 
     Retorna uma mensagem de confirmação da atualização.
     """
-    cliente_id = form.id
+    cliente_id = query.id
 
     logger.debug(f"Atualizando dados do cliente #{cliente_id}")
     session = Session()
@@ -157,13 +157,13 @@ def update_cliente(form: ClienteUpdateSchema):
             return {"message": error_msg}, 404
 
         # Se o CEP foi alterado, atualizar o endereço
-        if form.cep and form.cep != cliente.cep:
-            address_info = get_address_from_cep(form.cep)
+        if query.cep and query.cep != cliente.cep:
+            address_info = get_address_from_cep(query.cep)
             if not address_info:
                 return {"message": "CEP inválido ou não encontrado"}, 400
 
             # Atualizar as informações de endereço
-            cliente.cep = form.cep
+            cliente.cep = query.cep
             cliente.endereco = address_info['endereco']
             cliente.bairro = address_info['bairro']
             cliente.localidade = address_info['localidade']
