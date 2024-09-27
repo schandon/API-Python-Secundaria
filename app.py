@@ -3,7 +3,7 @@ from flask_openapi3 import Info, Tag
 from flask_openapi3 import OpenAPI
 from flask_cors import CORS
 from flask import redirect, jsonify
-from models.cliente import Cliente
+from models.endereco import Endereco
 from models import *
 from schemas import *
 from logger import logger
@@ -14,8 +14,8 @@ app = OpenAPI(__name__, info=info)
 CORS(app)
 
 # definindo tags
-cliente_tag = Tag(name="Cliente", description="Adição, visualização e remoção de clientes da base")
-
+endereco_tag = Tag(name="Endereço", description="Adição, visualização e remoção de Endereços da base")
+consulta_cep = Tag(name="Consulta", description="Faz consulta a ViaCep")
 
 @app.get('/')
 def home():
@@ -34,12 +34,12 @@ def get_address_from_cep(cep):
             }
     return None
 
-@app.post('/cliente', tags=[cliente_tag],
-          responses={"200": ClienteViewSchema, "409": ErrorSchema, "400": ErrorSchema})
-def add_cliente(form: ClienteSchema):
-    """Adiciona um novo cliente à base de dados
+@app.post('/endereco', tags=[endereco_tag],
+          responses={"200": EnderecoViewSchema, "409": ErrorSchema, "400": ErrorSchema})
+def add_endereco(form: EnderecoSchema):
+    """Adiciona um novo endereco à base de dados
 
-    Retorna uma representação dos clientes
+    Retorna uma representação dos enderecos
     """
     
     address_info = get_address_from_cep(form.cep)
@@ -48,7 +48,7 @@ def add_cliente(form: ClienteSchema):
     
     
     session = Session()
-    cliente = Cliente(
+    endereco = Endereco(
         cep=form.cep,
         endereco= address_info['endereco'],
         bairro= address_info['bairro'],
@@ -56,130 +56,151 @@ def add_cliente(form: ClienteSchema):
         uf= address_info['uf'], 
         
         )
-    logger.debug(f"Adicionando ID do Cliente: '{cliente.id}'")
+    logger.debug(f"Adicionando ID do endereco: '{endereco.id}'")
     try:
-        # adicionando cliente
-        session.add(cliente)
+        # adicionando endereco
+        session.add(endereco)
         # efetivando o camando de adição de novo item na tabela
         session.commit()
-        logger.debug(f"Adicionado ID do Cliente: '{cliente.id}'")
-        return apresenta_cliente(cliente), 200
+        logger.debug(f"Adicionado ID do endereco: '{endereco.id}'")
+        return apresenta_endereco(endereco), 200
     except IntegrityError as e:
-        error_msg = "cliente de mesmo nome já salvo na base :/"
-        logger.warning(f"Erro ao adicionar cliente '{cliente.id}', {error_msg}")
+        error_msg = "endereco de mesmo nome já salvo na base :/"
+        logger.warning(f"Erro ao adicionar endereco '{endereco.id}', {error_msg}")
         return {"mesage": error_msg}, 409
     except Exception as e:
         error_msg = "Não foi possível salvar novo item :/"
-        logger.warning(f"Erro ao adicionar cliente '{cliente.id}', {error_msg}")
+        logger.warning(f"Erro ao adicionar endereco '{endereco.id}', {error_msg}")
         return {"mesage": error_msg}, 400
 
-@app.get('/cliente', tags=[cliente_tag],
-         responses={"200": ClienteViewSchema, "404": ErrorSchema})
-def get_cliente(query: ClienteBuscaSchema):
-    """Faz a busca por um cliente a partir do id do cliente
+@app.get('/endereco', tags=[endereco_tag],
+         responses={"200": EnderecoViewSchema, "404": ErrorSchema})
+def get_endereco(query: EnderecoBuscaSchema):
+    """Faz a busca por um endereco a partir do id do endereco
 
-    Retorna uma representação dos clientes e comentários associados.
+    Retorna uma representação dos enderecos e comentários associados.
     """
-    cliente_id = query.id
-    logger.debug(f"Coletando dados sobre cliente #{cliente_id}")
+    endereco_id = query.id
+    logger.debug(f"Coletando dados sobre endereco #{endereco_id}")
     session = Session()
-    cliente = session.query(Cliente).filter(Cliente.id == cliente_id).first()
-    if not cliente:
-        error_msg = "cliente não encontrado na base :/"
-        logger.warning(f"Erro ao buscar cliente '{cliente_id}', {error_msg}")
+    endereco = session.query(Endereco).filter(Endereco.id == endereco_id).first()
+    if not endereco:
+        error_msg = "endereco não encontrado na base :/"
+        logger.warning(f"Erro ao buscar endereco '{endereco_id}', {error_msg}")
         return {"mesage": error_msg}, 400
     else:
-        logger.debug(f"cliente econtrado: '{cliente.id}'")
-        return apresenta_cliente(cliente), 200
+        logger.debug(f"endereco econtrado: '{endereco.id}'")
+        return jsonify(endereco.to_dict()), 200
 
-@app.get('/clientes', tags=[cliente_tag],
-         responses={"200": ClienteListaViewSchema, "404": ErrorSchema})
-def get_clientes():
-    """Lista todos os clientes cadastrados na base
+@app.get('/enderecos', tags=[endereco_tag],
+         responses={"200": EnderecoListaViewSchema, "404": ErrorSchema})
+def get_enderecos():
+    """Lista todos os enderecos cadastrados na base
 
-    Retorna uma lista de representações de clientes.
+    Retorna uma lista de representações de enderecos.
     """
-    logger.debug(f"Coletando lista de clientes")
+    logger.debug(f"Coletando lista de enderecos")
     session = Session()
-    clientes = session.query(Cliente).all()
-    print(clientes)
-    if not clientes:
-        error_msg = "cliente não encontrado na base :/"
-        logger.warning(f"Erro ao buscar por lista de clientes. {error_msg}")
+    enderecos = session.query(Endereco).all()
+    print(enderecos)
+    if not enderecos:
+        error_msg = "endereco não encontrado na base :/"
+        logger.warning(f"Erro ao buscar por lista de enderecos. {error_msg}")
         return {"mesage": error_msg}, 400
     else:
-        logger.debug(f"Retornando lista de clientes")
-        return apresenta_lista_cliente(clientes), 200
+        logger.debug(f"Retornando lista de enderecos")
+        return apresenta_lista_endereco(enderecos), 200
    
-@app.delete('/cliente', tags=[cliente_tag],
-            responses={"200": ClienteDelSchema, "404": ErrorSchema})
-def del_cliente(query: ClienteBuscaSchema):
-    """Deleta um cliente a partir do id informado
+@app.delete('/endereco', tags=[endereco_tag],
+            responses={"200": EnderecoDelSchema, "404": ErrorSchema})
+def del_endereco(query: EnderecoBuscaSchema):
+    """Deleta um endereco a partir do id informado
 
     Retorna uma mensagem de confirmação da remoção.
     """
-    cliente_id = query.id
+    endereco_id = query.id
 
-    logger.debug(f"Deletando dados sobre cliente #{cliente_id}")
+    logger.debug(f"Deletando dados sobre endereco #{endereco_id}")
     session = Session()
 
-    if cliente_id:
-        count = session.query(Cliente).filter(Cliente.id == cliente_id).delete()
+    if endereco_id:
+        count = session.query(Endereco).filter(Endereco.id == endereco_id).delete()
 
     session.commit()
     if count:
-        logger.debug(f"Deletado cliente #{cliente_id}")
-        return {"mesage": "cliente removido", "id": cliente_id}
+        logger.debug(f"Deletado endereco #{endereco_id}")
+        return {"mesage": "endereco removido", "id": endereco_id}
     else: 
-        error_msg = "cliente não encontrado na base :/"
-        logger.warning(f"Erro ao deletar cliente #'{cliente_id}', {error_msg}")
+        error_msg = "endereco não encontrado na base :/"
+        logger.warning(f"Erro ao deletar endereco #'{endereco_id}', {error_msg}")
         return {"mesage": error_msg}, 400
     
-@app.put('/cliente', tags=[cliente_tag],
-         responses={"200": ClienteViewSchema, "404": ErrorSchema})
-def update_cliente(query: ClienteUpdateSchema):
-    """Atualiza um cliente a partir do ID informado.
+@app.put('/endereco', tags=[endereco_tag],
+         responses={"200": EnderecoViewSchema, "404": ErrorSchema})
+def update_endereco(query: EnderecoUpdateSchema):
+    """Atualiza um endereco a partir do ID informado.
 
     Retorna uma mensagem de confirmação da atualização.
     """
-    cliente_id = query.id
+    endereco_id = query.id
 
-    logger.debug(f"Atualizando dados do cliente #{cliente_id}")
+    logger.debug(f"Atualizando dados do endereco #{endereco_id}")
     session = Session()
+    endereco = None
 
     try:
-        # Buscar o cliente existente
-        cliente = session.query(Cliente).filter(Cliente.id == cliente_id).first()
+        # Buscar o endereco existente
+        endereco = session.query(Endereco).filter(Endereco.id == endereco_id).first()
 
-        if not cliente:
-            error_msg = f"Cliente com ID {cliente_id} não encontrado."
-            logger.warning(f"Erro ao atualizar cliente #{cliente_id}, {error_msg}")
+        if not endereco:
+            error_msg = f"endereco com ID {endereco_id} não encontrado."
+            logger.warning(f"Erro ao atualizar endereco #{endereco_id}, {error_msg}")
             return {"message": error_msg}, 404
 
         # Se o CEP foi alterado, atualizar o endereço
-        if query.cep and query.cep != cliente.cep:
+        if query.cep and query.cep != endereco.cep:
             address_info = get_address_from_cep(query.cep)
             if not address_info:
                 return {"message": "CEP inválido ou não encontrado"}, 400
 
             # Atualizar as informações de endereço
-            cliente.cep = query.cep
-            cliente.endereco = address_info['endereco']
-            cliente.bairro = address_info['bairro']
-            cliente.localidade = address_info['localidade']
-            cliente.uf = address_info['uf']
+            endereco.cep = query.cep
+            endereco.endereco = address_info['endereco']
+            endereco.bairro = address_info['bairro']
+            endereco.localidade = address_info['localidade']
+            endereco.uf = address_info['uf']
 
         # Commit da transação
         session.commit()
 
-        logger.debug(f"Cliente #{cliente_id} atualizado com sucesso.")
-        return {"message": "Cliente atualizado", "id": cliente_id}, 200
+        logger.debug(f"endereco #{endereco_id} atualizado com sucesso.")
+        return {"message": "endereco atualizado", "id": endereco_id}, 200
 
     except Exception as e:
         session.rollback()
-        error_msg = f"Erro ao atualizar cliente: {str(e)}"
+        error_msg = f"Erro ao atualizar endereco: {str(e)}"
         logger.error(error_msg)
         return {"message": error_msg}, 500
 
     finally:
         session.close()
+
+
+@app.get('/cosulta-cep', tags=[consulta_cep],
+         responses={"200": EnderecoViewSchema, "404": ErrorSchema})
+def consulta_cep(query: EnderecoCepSchema):
+    cep = query.get('cep')
+    if not cep:
+        return jsonify({"error": "CEP não informado"}), 400
+    
+    try:
+        via_cep_url = f'https://viacep.com.br/ws/{cep}/json/'
+        response = requests.get(via_cep_url)
+        
+        if response.status_code != 200:
+            return jsonify({"error": f"CEP inválido, {response.status_code}"})
+        
+        return  response.json()
+    
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": str(e)}), 500

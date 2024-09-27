@@ -1,0 +1,58 @@
+[2024-09-26 15:34:55,611] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:34:55] "[35m[1mGET /cosulta-cep?cep=21240050 HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:35:05,302] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.1.69:9000 - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:35:05,303] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:35:05,494] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:35:05] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:35:05,600] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:35:05] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:35:05,601] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:35:05] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:35:05,601] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:35:05] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:35:05,711] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:35:05] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:07,576] ERROR log_exception() L838  Exception on /cosulta-cep [GET] - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\app.py", line 191, in consulta_cep
+    cep = query.get('cep')
+          ^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\pydantic\main.py", line 856, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ClienteCepSchema' object has no attribute 'get'
+[2024-09-26 15:36:07,580] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:07] "[35m[1mGET /cosulta-cep?cep=21240050&uf=RJ&estado=Rio HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:32,800] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:32] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:32,837] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:32] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:32,838] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:32] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:32,839] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:32] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:32,934] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:32] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:46,165] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.1.69:9000 - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:46,166] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:49,887] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:49] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:49,988] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:49] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:49,992] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:49] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:49,993] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:49] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:50,110] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:50] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:51,760] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:51] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:51,790] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:51] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:51,793] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:51] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:51,794] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:51] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:36:51,911] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:36:51] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  

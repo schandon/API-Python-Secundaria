@@ -1,0 +1,84 @@
+[2024-09-26 19:28:36,578] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:28:36] "[35m[1mGET /cliente?id=1 HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:29:23,232] ERROR log_exception() L838  Exception on /cliente [GET] - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\app.py", line 93, in get_cliente
+    return jsonify(cliente.to_dict()), 200
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\models\cliente.py", line 36, in to_dict
+    }
+      
+AttributeError: 'Cliente' object has no attribute 'data_nascimento'
+[2024-09-26 19:29:23,244] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:29:23] "[35m[1mGET /cliente?id=1 HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:29:23,281] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:29:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:29:25,604] ERROR log_exception() L838  Exception on /cliente [GET] - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\app.py", line 93, in get_cliente
+    return jsonify(cliente.to_dict()), 200
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\models\cliente.py", line 36, in to_dict
+    }
+      
+AttributeError: 'Cliente' object has no attribute 'data_nascimento'
+[2024-09-26 19:29:25,607] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:29:25] "[35m[1mGET /cliente?id=1 HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:30:08,584] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.1.69:9000 - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:30:08,585] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:30:13,480] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:30:13] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:30:32,864] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:30:32] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:30:32,973] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:30:32] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:30:32,975] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:30:32] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:30:32,976] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:30:32] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:30:33,115] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:30:33] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:30:39,911] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:30:39] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:31:26,700] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:31:26] "[33mGET /cliente/1 HTTP/1.1[0m" 404 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:32:25,236] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:32:25] "[33mGET /cliente/1 HTTP/1.1[0m" 404 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:36:15,410] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:36:15] "[33mGET /cliente/1 HTTP/1.1[0m" 404 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:39:52,660] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:39:52] "[33mGET /cliente/1 HTTP/1.1[0m" 404 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:41:53,269] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:41:53] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:42:57,026] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:42:57] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:44:44,259] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:44:44] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:47:11,213] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:47:11] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:50:23,179] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:50:23] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:53:34,214] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:53:34] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 19:55:31,439] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 19:55:31] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 20:00:18,620] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 20:00:18] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 20:01:15,038] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 20:01:15] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 20:01:52,112] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 20:01:52] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  

@@ -1,0 +1,98 @@
+[2024-09-26 15:37:01,577] ERROR log_exception() L838  Exception on /cosulta-cep [GET] - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\app.py", line 191, in consulta_cep
+    cep = query.get('cep')
+          ^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\pydantic\main.py", line 856, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ClienteCepSchema' object has no attribute 'get'
+[2024-09-26 15:37:01,584] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:37:01] "[35m[1mGET /cosulta-cep?cep=21240050 HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:38:04,957] ERROR log_exception() L838  Exception on /cosulta-cep [GET] - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\app.py", line 191, in consulta_cep
+    cep = query.get('cep')
+          ^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\pydantic\main.py", line 856, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ClienteCepSchema' object has no attribute 'get'
+[2024-09-26 15:38:04,959] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:38:04] "[35m[1mGET /cosulta-cep?cep="21240050" HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:38:08,444] ERROR log_exception() L838  Exception on /cosulta-cep [GET] - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\app.py", line 191, in consulta_cep
+    cep = query.get('cep')
+          ^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\pydantic\main.py", line 856, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ClienteCepSchema' object has no attribute 'get'
+[2024-09-26 15:38:08,446] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:38:08] "[35m[1mGET /cosulta-cep?cep="21240050" HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 15:38:41,765] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 15:38:41] "GET /cliente?id=1 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 16:05:16,391] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.1.69:9000 - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 16:05:16,392] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:27,909] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:27] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:28,029] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:28] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:28,065] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:28] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:28,137] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:28] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:28,234] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:28] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:39,220] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:39] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:39,251] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:39] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:39,253] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:39] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:39,253] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:39] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:39,374] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:39] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 18:47:41,256] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 18:47:41] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  

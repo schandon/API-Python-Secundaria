@@ -1,0 +1,81 @@
+[2024-09-26 22:54:04,695] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:04] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:04,695] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:04] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:04,696] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:04] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:04,844] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:04] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:21,409] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.1.69:9000 - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:21,410] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:23,345] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:23] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:23,459] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:23] "[36mGET /openapi/static/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:23,465] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:23] "GET /openapi/static/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:23,467] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:23] "[36mGET /openapi/static/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:23,587] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:23] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:31,007] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:31] "POST /endereco HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:33,021] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:33] "POST /endereco HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:54:43,562] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:54:43] "POST /endereco HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:55:07,424] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:55:07] "POST /endereco HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:55:24,282] ERROR log_exception() L838  Exception on /endereco [GET] - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\app.py", line 86, in get_endereco
+    endereco = session.query(endereco).filter(endereco.id == endereco_id).first()
+                             ^^^^^^^^
+UnboundLocalError: cannot access local variable 'endereco' where it is not associated with a value
+[2024-09-26 22:55:24,286] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:55:24] "[35m[1mGET /endereco?id=2 HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:55:36,598] ERROR log_exception() L838  Exception on /endereco [GET] - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py L838 
+Traceback (most recent call last):
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Projetos\API-Python-Secundaria\app.py", line 86, in get_endereco
+    endereco = session.query(Endereco).filter(Endereco.id == endereco_id).first()
+                             ^^^^^^^^
+UnboundLocalError: cannot access local variable 'endereco' where it is not associated with a value
+[2024-09-26 22:55:36,610] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:55:36] "[35m[1mGET /endereco?id=2 HTTP/1.1[0m" 500 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:56:01,861] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.1.69:9000 - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:56:01,862] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:56:03,418] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:56:03] "GET /endereco?id=2 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:56:05,481] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:56:05] "GET /endereco?id=2 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:56:06,535] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:56:06] "GET /endereco?id=2 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:56:09,203] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:56:09] "GET /endereco?id=4 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:56:12,032] WARNING get_endereco() L89   Erro ao buscar endereco '5', endereco não encontrado na base :/ - call_trace=C:\Projetos\API-Python-Secundaria\app.py L89  
+[2024-09-26 22:56:12,033] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:56:12] "[31m[1mGET /endereco?id=5 HTTP/1.1[0m" 400 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:56:14,502] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:56:14] "GET /endereco?id=3 HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-09-26 22:56:44,948] INFO _log() L97   127.0.0.1 - - [26/Sep/2024 22:56:44] "GET /enderecos HTTP/1.1" 200 - - call_trace=C:\Projetos\API-Python-Secundaria\env\Lib\site-packages\werkzeug\_internal.py L97  
